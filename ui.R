@@ -1,5 +1,4 @@
 library(plotly)
-library(bslib)
 
 # 1. Customize your app via my_style
 # 2. Publish your app
@@ -50,7 +49,7 @@ main_panel_plot <- mainPanel(
   plotlyOutput(outputId = "climate_plot")
 )
 
-# Climate tab  â€” combine sidebar panel and main panel
+# Climate tab  ?€? combine sidebar panel and main panel
 climate_tab <- tabPanel(
   "Climate Viz",
   sidebarLayout(
