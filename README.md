@@ -1,5 +1,5 @@
 #  FIFA World Cup Statistics
-## INFO 201 "Foundational Skills for Data Science" — Spring 2022
+## INFO 201 "Foundational Skills for Data Science" - Spring 2022
 
 ### Authors:
 
