@@ -23,7 +23,7 @@ intro_tab <- tabPanel(
   "Introduction",
   fluidPage(
     # Include a Markdown file!
-    includeMarkdown("sample-text.md"),
+    includeMarkdown("intro_text.md"),
     p("Our project is focusing neww.....")
   )
 )
