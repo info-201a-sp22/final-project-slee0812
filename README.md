@@ -1,12 +1,12 @@
-# Title of Your Final Project Here
+#  FIFA World Cup Statistics
 ## INFO 201 "Foundational Skills for Data Science" — Spring 2022
 
-Authors:
+### Authors:
 
-Member 1: Sangmin Lee ([slee1998\@uw.edu](mailto:slee1998@uw.edu){.email})\
-Member 2: Yanze Li ([yanzel2\@uw.edu](mailto:yanzel2@uw.edu){.email})\
-Member 3: Brian Park ([myungp\@uw.edu](mailto:myungp@uw.edu){.email})\
-Member 4: Jiaqi Wang ([jiaqiw18\@uw.edu](mailto:jiaqiw18@uw.edu){.email})
+Member 1: Sangmin Lee ([slee1998\@uw.edu](mailto:slee1998@uw.edu))\
+Member 2: Yanze Li ([yanzel2\@uw.edu](mailto:yanzel2@uw.edu))\
+Member 3: Brian Park ([myungp\@uw.edu](mailto:myungp@uw.edu))\
+Member 4: Jiaqi Wang ([jiaqiw18\@uw.edu](mailto:jiaqiw18@uw.edu))
 
 
 Link: Link to your Shiny App here
