@@ -18,12 +18,9 @@ my_theme <- bs_theme_update(my_theme, bootswatch = "cerulean") #%>%
 
 # Home page tab
 intro_tab <- tabPanel(
-  # Title of tab
   "Introduction",
   fluidPage(
-    # Include a Markdown file!
-    includeMarkdown("intro_text.md"),
-    p("Our project is focusing neww.....")
+    includeMarkdown("intro_text.md")
   )
 )
 
@@ -49,7 +46,7 @@ main_panel_plot <- mainPanel(
   plotlyOutput(outputId = "climate_plot")
 )
 
-# Climate tab  ?€? combine sidebar panel and main panel
+
 climate_tab <- tabPanel(
   "Climate Viz",
   sidebarLayout(
@@ -58,12 +55,19 @@ climate_tab <- tabPanel(
   )
 )
 
+# conclusion
+conclusion_tab <- tabPanel(
+  "Conclusion",
+  fluidPage(
+    includeMarkdown("conclusion_text.md")
+  )
+)
+
 ui <- navbarPage(
-  # Select Theme
   theme = my_theme,
-  # Home page title
-  "Home Page",
+  "FIFA World Cup Statistics",
   intro_tab,
-  climate_tab
+  climate_tab,
+  conclusion_tab
 )
 
