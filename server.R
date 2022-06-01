@@ -6,6 +6,8 @@ library(stringr)
 
 source("winning_perc_data.R")
 WorldCup <- read.csv("data/WorldCups.csv")
+ff_data <- read.csv(file = "data/WorldCupMatches.csv")
+ff_data_2018 <- read.csv(file = "data/world_cup_2018_stats.csv")
 
 server <- function(input, output) {
   output$winning_perc_plot <- renderPlotly({
@@ -28,7 +30,7 @@ server <- function(input, output) {
     return(value)
   })
 
-  output$chart_3 <- renderPlotly({
+  output$correaltion_plot <- renderPlotly({
     GSplot <- ggplot(data = WorldCup) +
       geom_point(aes(x = MatchesPlayed, y = GoalsScored, colour = MatchesPlayed)) +
       labs(title = "Correlation between MatchesPlayed and GoalsScored")
@@ -49,5 +51,45 @@ server <- function(input, output) {
     } else {
       return(Atplot)
     }
+  })
+  
+  output$comparision_plot <- renderPlotly({
+    
+    ff_data_2018 <- ff_data_2018 %>%
+      distinct(Game, .keep_all = TRUE)
+    
+    
+    goals <- ff_data %>%
+      group_by(Year) %>%
+      summarise(Home_goals = sum(Home.Team.Goals), Away_goals = sum(Away.Team.Goals))
+    
+    goals_2018 <- ff_data_2018 %>%
+      summarize(Home_goals_2018 = sum(Goals.For), Away_goals_2018 = sum(Goals.Against))
+    
+    goals[21, 1] <- 2018
+    goals[21, 2] <- goals_2018 %>%
+      pull(Home_goals_2018)
+    goals[21, 3] <- goals_2018 %>%
+      pull(Away_goals_2018)
+    
+    
+    goals_home_max <- goals %>%
+      filter(Home_goals == max(Home_goals)) %>%
+      pull(Year)
+    
+    goals_away_max <- goals %>%
+      filter(Away_goals == max(Away_goals)) %>%
+      pull(Year)
+    
+    
+    score_plot <- ggplot(data = goals) +
+      geom_line(aes(x = Year, y = Home_goals, colour = "Home scores")) +
+      geom_line(aes(x = Year, y = Away_goals, colour = "Away scores")) +
+      labs(title = "Comparsion between Home Scores and Away Scores") +
+      print(labs(y = "Goals", x = "Year"))
+    scale_x_continuous(breaks = seq(1930, 2018, by = 4))
+    
+    return(score_plot)
+    
   })
 }

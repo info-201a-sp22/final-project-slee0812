@@ -50,9 +50,9 @@ winning_tab <- tabPanel(
   )
 )
 
-# For chart 3
+# Page 2
 
-sidebar_panel_widget_3 <- sidebarPanel(
+sidebar_panel_widget_2 <- sidebarPanel(
   selectInput(
     inputId = "variable_selection",
     label = "Factors",
@@ -62,18 +62,42 @@ sidebar_panel_widget_3 <- sidebarPanel(
   )
 )
 
-main_panel_plot_3 <- mainPanel(
-  plotlyOutput(outputId = "chart_3")
+main_panel_plot_2 <- mainPanel(
+  plotlyOutput(outputId = "correalation_plot")
 )
 
 correaltion_tab <- tabPanel(
   "Factors Correalation",
   sidebarLayout(
+    sidebar_panel_widget_2,
+    main_panel_plot_2
+  )
+)
+
+# Page 3
+
+sidebar_panel_widget_3 <- sidebarPanel(
+  sliderInput(
+    inputId = "year_selection",
+    label = h3("Time Range"),
+    min = 1930,
+    max = 2018,
+    sep = "",
+    value = c(1930, 2018)
+  )
+)
+
+main_panel_plot_3 <- mainPanel(
+  plotlyOutput(outputId = "comparision_plot")
+)
+
+comparision_tab <- tabPanel(
+  "HS/AS Comparision",
+  sidebarLayout(
     sidebar_panel_widget_3,
     main_panel_plot_3
   )
 )
-
 
 # conclusion
 conclusion_tab <- tabPanel(
@@ -89,5 +113,6 @@ ui <- navbarPage(
   intro_tab,
   winning_tab,
   correaltion_tab,
+  comparision_tab,
   conclusion_tab
 )

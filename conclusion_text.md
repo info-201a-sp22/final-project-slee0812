@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Conclusion page
 
 ## Three Specific Takeaways
@@ -34,6 +33,3 @@ Image source: https://theworld.org/stories/2014-06-23/how-can-us-advance-world-c
 
 
 ## Discussion of the broader implications of this insight(need to fix it)
-=======
-# Conclusion
->>>>>>> 4935461d31c77e02f1253d4941472c845978a8d2
