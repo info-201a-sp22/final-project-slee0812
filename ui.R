@@ -1,10 +1,7 @@
 library(plotly)
+library(bslib)
 
-# 1. Customize your app via my_style
-# 2. Publish your app
-
-# Load climate data
-climate_df <- read.csv("https://raw.githubusercontent.com/owid/co2-data/master/owid-co2-data.csv", stringsAsFactors = FALSE)
+source("winning_perc_data.R")
 
 # Manually Determine a BootSwatch Theme
 my_theme <- bs_theme(bg = "#0b3d91", #background color
@@ -18,37 +15,35 @@ my_theme <- bs_theme_update(my_theme, bootswatch = "cerulean") #%>%
 
 # Home page tab
 intro_tab <- tabPanel(
+  # Title of tab
   "Introduction",
   fluidPage(
-    includeMarkdown("intro_text.md")
+    # # Include a Markdown file!
+    # includeMarkdown("intro_text.md"),
+    p("Our project is focusing neww.....")
   )
 )
+
 
 # We want our next tab to have a sidebar layout
 # So we're going to create a sidebarPanel() and a mainPanel() and then add them together
 
-# Create sidebar panel for widget
 sidebar_panel_widget <- sidebarPanel(
-  checkboxGroupInput(
-    inputId = "country_selection",
-    label = "Countries",
-    choices = c("United States", "China", "South Africa"),
-    # True allows you to select multiple choices...
-    #multiple = TRUE,
-    selected = "United States"
+  selectInput(
+    inputId = "country_selected",
+    label = h5("Country"),
+    choices = wins_df$country,
+    multiple = TRUE,
+    selected = c("Brazil", "Argentina", "Belgium", "France", "Japan", "Korea Republic", "Senegal", "Morocco", "Mexico", "USA")
   )
 )
 
-
-# Put a plot in the middle of the page
 main_panel_plot <- mainPanel(
-  # Make plot interactive
-  plotlyOutput(outputId = "climate_plot")
+  plotlyOutput(outputId = "winning_perc_plot")
 )
 
-
-climate_tab <- tabPanel(
-  "Climate Viz",
+winning_tab <- tabPanel(
+  "Winning %",
   sidebarLayout(
     sidebar_panel_widget,
     main_panel_plot
@@ -67,7 +62,6 @@ ui <- navbarPage(
   theme = my_theme,
   "FIFA World Cup Statistics",
   intro_tab,
-  climate_tab,
+  winning_tab,
   conclusion_tab
 )
-
