@@ -14,6 +14,8 @@ With the upcoming 2022 Qatar FIFA World Cup, the bandwagon of soccer has started
 * Does home advantage in the World Cup actually affects teams to score?
 * What is the correlation between matches played and goals scored in the World Cup?
 
+We used two datasets.
+
 First dataset: [World Cup dataset 1930 to 2014](https://www.kaggle.com/datasets/abecklas/fifa-world-cup?select=WorldCupMatches.csv)
 
 Second dataset: [World Cup dataset 2018](https://fixturedownload.com/results/fifa-world-cup-2018)
