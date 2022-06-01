@@ -24,7 +24,6 @@ intro_tab <- tabPanel(
   )
 )
 
-
 # We want our next tab to have a sidebar layout
 # So we're going to create a sidebarPanel() and a mainPanel() and then add them together
 
@@ -47,6 +46,9 @@ winning_tab <- tabPanel(
   sidebarLayout(
     sidebar_panel_widget,
     main_panel_plot
+  ),
+  fluidPage(
+    p("This bar chart displays the countries with their winning percentages in FIFA World Cup history from 1930 to 2018. This visualization will automatically arrange the order of countries based on their winning percentages, allowing you to easily find the countries with the highest or lowest winning percentage in the FIFA World Cup. The defaulted countries above are selected from the top two FIFA rankings for each continent, except for countries belonging to the Oceania Football Federation. With the widget in this page, you can freely choose as many countries you want. For example, if you compare Brazil's winning percentage with any other country, you will always get the same conclusion that Brazil has the highest winning percentage in the FIFA World Cup. In addition, if you select all countries shown on the graph, you will be able to find out that Tunisia has the lowest winning percentage.")
   )
 )
 
