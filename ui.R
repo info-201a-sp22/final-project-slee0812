@@ -64,8 +64,8 @@ main_panel_plot_3 <- mainPanel(
   plotlyOutput(outputId = "chart_3")
 )
 
-chart_3_tab <- tabPanel(
-  "Chart 3",
+correaltion_tab <- tabPanel(
+  "Factors Correalation",
   sidebarLayout(
     sidebar_panel_widget_3,
     main_panel_plot_3
@@ -86,6 +86,6 @@ ui <- navbarPage(
   "FIFA World Cup Statistics",
   intro_tab,
   winning_tab,
-  chart_3_tab,
+  correaltion_tab,
   conclusion_tab
 )
