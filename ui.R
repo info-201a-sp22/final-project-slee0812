@@ -1,7 +1,7 @@
 library(plotly)
 library(bslib)
 
-source("winning_perc_data.R")
+source("trimmedData.R")
 
 # Manually Determine a BootSwatch Theme
 my_theme <- bs_theme(
@@ -80,10 +80,10 @@ sidebar_panel_widget_3 <- sidebarPanel(
   sliderInput(
     inputId = "year_selection",
     label = h3("Time Range"),
-    min = 1930,
-    max = 2018,
+    min = min(goals$Year),
+    max = max(goals$Year),
     sep = "",
-    value = c(1930, 2018)
+    value = c(min(goals$Year), max(goals$Year))
   )
 )
 

@@ -176,3 +176,35 @@ table_df$lowest_winning_perc <- round(wins_df %>%
 table_df$cumulative_attendance <- sum(ff_data$Attendance, na.rm = TRUE)
 
 table_df$most_goals_scored <- max(total_goals_2014, total_goals_2018)
+
+
+# HS/AS
+WorldCup <- read.csv("data/WorldCups.csv")
+fff_data <- read.csv(file = "data/WorldCupMatches.csv")
+fff_data_2018 <- read.csv(file = "data/world_cup_2018_stats.csv")
+
+fff_data_2018 <- fff_data_2018 %>%
+  distinct(Game, .keep_all = TRUE)
+
+
+goals <- fff_data %>%
+  group_by(Year) %>%
+  summarise(Home_goals = sum(Home.Team.Goals), Away_goals = sum(Away.Team.Goals))
+
+goals_2018 <- fff_data_2018 %>%
+  summarize(Home_goals_2018 = sum(Goals.For), Away_goals_2018 = sum(Goals.Against))
+
+goals[21, 1] <- 2018
+goals[21, 2] <- goals_2018 %>%
+  pull(Home_goals_2018)
+goals[21, 3] <- goals_2018 %>%
+  pull(Away_goals_2018)
+
+
+goals_home_max <- goals %>%
+  filter(Home_goals == max(Home_goals)) %>%
+  pull(Year)
+
+goals_away_max <- goals %>%
+  filter(Away_goals == max(Away_goals)) %>%
+  pull(Year)
