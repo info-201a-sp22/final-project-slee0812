@@ -4,14 +4,15 @@ library(bslib)
 source("winning_perc_data.R")
 
 # Manually Determine a BootSwatch Theme
-my_theme <- bs_theme(bg = "#0b3d91", #background color
-                  fg = "yellow", #foreground color
-                  primary = "#FCC780", # primary color
-) 
+my_theme <- bs_theme(
+  bg = "#0b3d91", # background color
+  fg = "yellow", # foreground color
+  primary = "#FCC780", # primary color
+)
 # Update BootSwatch Theme
-my_theme <- bs_theme_update(my_theme, bootswatch = "cerulean") #%>% 
-  # Add custom styling from a scss file
-  #bs_add_rules(sass::sass_file("my_style.scss"))
+my_theme <- bs_theme_update(my_theme, bootswatch = "cerulean") # %>%
+# Add custom styling from a scss file
+# bs_add_rules(sass::sass_file("my_style.scss"))
 
 # Home page tab
 intro_tab <- tabPanel(
@@ -22,9 +23,7 @@ intro_tab <- tabPanel(
   )
 )
 
-
-# We want our next tab to have a sidebar layout
-# So we're going to create a sidebarPanel() and a mainPanel() and then add them together
+# Page 1
 
 sidebar_panel_widget <- sidebarPanel(
   selectInput(
@@ -45,8 +44,36 @@ winning_tab <- tabPanel(
   sidebarLayout(
     sidebar_panel_widget,
     main_panel_plot
+  ),
+  fluidPage(
+    textOutput(outputId = "description_1"),
   )
 )
+
+# For chart 3
+
+sidebar_panel_widget_3 <- sidebarPanel(
+  selectInput(
+    inputId = "variable_selection",
+    label = "Factors",
+    choices = c("GoalsScored" = 1, "QualifiedTeams" = 2, "Attendance" = 3),
+    multiple = FALSE,
+    selected = "GoalsScored"
+  )
+)
+
+main_panel_plot_3 <- mainPanel(
+  plotlyOutput(outputId = "chart_3")
+)
+
+correaltion_tab <- tabPanel(
+  "Factors Correalation",
+  sidebarLayout(
+    sidebar_panel_widget_3,
+    main_panel_plot_3
+  )
+)
+
 
 # conclusion
 conclusion_tab <- tabPanel(
@@ -61,5 +88,6 @@ ui <- navbarPage(
   "FIFA World Cup Statistics",
   intro_tab,
   winning_tab,
+  correaltion_tab,
   conclusion_tab
 )
