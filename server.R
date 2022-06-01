@@ -6,12 +6,15 @@ library(stringr)
 
 source("trimmedData.R")
 
+# server
 server <- function(input, output) {
+
+  # Page 1
   output$winning_perc_plot <- renderPlotly({
     wins_df <- wins_df %>%
       filter(country %in% input$country_selected)
 
-    # barchart
+    # bar_chart
     bar_chart <- ggplot(data = wins_df) +
       geom_col(mapping = aes(x = reorder(country, +winning_perc), y = winning_perc, fill = country)) +
       labs(title = "Winning Percentages by Countries in FIFA World Cup (1930-2018)", x = "Countries", y = "Winning Percentages (%)", fill = "Percentages (%)") +
@@ -27,20 +30,23 @@ server <- function(input, output) {
     return(value)
   })
 
-  
-  #Page 2
+
+  # Page 2
   output$correalation_plot <- renderPlotly({
     GSplot <- ggplot(data = WorldCup) +
       geom_point(aes(x = MatchesPlayed, y = GoalsScored, colour = MatchesPlayed)) +
-      labs(title = "Correlation between MatchesPlayed and GoalsScored")
+      labs(title = "Correlation between MatchesPlayed and GoalsScored") + 
+      theme(plot.title = element_text(size = 20, face = "bold"))
 
     QTplot <- ggplot(data = WorldCup) +
       geom_point(aes(x = MatchesPlayed, y = QualifiedTeams, colour = MatchesPlayed)) +
-      labs(title = "Correlation between MatchesPlayed and QualifiedTeams")
+      labs(title = "Correlation between MatchesPlayed and QualifiedTeams") +
+      theme(plot.title = element_text(size = 20, face = "bold"))
 
     Atplot <- ggplot(data = WorldCup) +
       geom_point(aes(x = MatchesPlayed, y = Attendance, colour = MatchesPlayed)) +
-      labs(title = "Correlation between MatchesPlayed and Attendance")
+      labs(title = "Correlation between MatchesPlayed and Attendance") +
+      theme(plot.title = element_text(size = 20, face = "bold"))
 
     if (input$variable_selection == 1) {
       return(GSplot)
@@ -52,6 +58,7 @@ server <- function(input, output) {
     }
   })
 
+
   # Page 3
   output$comparision_plot <- renderPlotly({
     filtered_df <- goals %>%
@@ -61,6 +68,7 @@ server <- function(input, output) {
       geom_line(aes(x = Year, y = Home_goals, colour = "Home scores")) +
       geom_line(aes(x = Year, y = Away_goals, colour = "Away scores")) +
       labs(title = "Comparsion between Home Scores and Away Scores") +
+      theme(plot.title = element_text(size = 20, face = "bold")) +
       print(labs(y = "Goals", x = "Year")) +
       scale_x_continuous(breaks = seq(1930, 2018, by = 4))
 
