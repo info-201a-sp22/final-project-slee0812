@@ -30,19 +30,19 @@ server <- function(input, output) {
     return(value)
   })
 
-  output$correaltion_plot <- renderPlotly({
+  output$correalation_plot <- renderPlotly({
     GSplot <- ggplot(data = WorldCup) +
       geom_point(aes(x = MatchesPlayed, y = GoalsScored, colour = MatchesPlayed)) +
       labs(title = "Correlation between MatchesPlayed and GoalsScored")
-
+    
     QTplot <- ggplot(data = WorldCup) +
       geom_point(aes(x = MatchesPlayed, y = QualifiedTeams, colour = MatchesPlayed)) +
       labs(title = "Correlation between MatchesPlayed and QualifiedTeams")
-
+    
     Atplot <- ggplot(data = WorldCup) +
       geom_point(aes(x = MatchesPlayed, y = Attendance, colour = MatchesPlayed)) +
       labs(title = "Correlation between MatchesPlayed and Attendance")
-
+    
     if (input$variable_selection == 1) {
       return(GSplot)
     }
