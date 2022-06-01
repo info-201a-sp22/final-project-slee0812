@@ -48,6 +48,31 @@ winning_tab <- tabPanel(
   )
 )
 
+# For chart 3
+
+sidebar_panel_widget_3 <- sidebarPanel(
+  selectInput(
+    inputId = "variable_selection",
+    label = "Factors",
+    choices = c("GoalsScored" = 1, "QualifiedTeams" = 2, "Attendance" = 3),
+    multiple = FALSE,
+    selected = "GoalsScored"
+  )
+)
+
+main_panel_plot_3 <- mainPanel(
+  plotlyOutput(outputId = "chart_3")
+)
+
+chart_3_tab <- tabPanel(
+  "Chart 3",
+  sidebarLayout(
+    sidebar_panel_widget_3,
+    main_panel_plot_3
+  )
+)
+
+
 # conclusion
 conclusion_tab <- tabPanel(
   "Conclusion",
@@ -61,5 +86,6 @@ ui <- navbarPage(
   "FIFA World Cup Statistics",
   intro_tab,
   winning_tab,
+  chart_3_tab,
   conclusion_tab
 )
