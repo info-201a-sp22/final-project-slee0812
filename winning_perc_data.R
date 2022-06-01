@@ -6,7 +6,6 @@ library(ggplot2)
 
 # dataframe ~2014
 soccer_df <- distinct(read.csv("data/WorldCupMatches.csv"))
-ff_data <- distinct(read.csv(file = 'data/WorldCupMatches.csv'))
 
 
 # Create goal difference
@@ -84,7 +83,9 @@ wins_df <- left_join(wins_df, total_away_games_df, by = "country")
 df_2018 <- read.csv("data/world_cup_2018_stats.csv")
 
 df_2018 <- df_2018 %>%
-  distinct(Game, .keep_all = TRUE) %>% 
+  distinct(Game, .keep_all = TRUE)
+
+df_2018 <- df_2018 %>%
   mutate(winner = "")
 
 df_2018$winner <- ifelse(df_2018$WDL == "D", "Draw", "")
@@ -132,8 +133,12 @@ wins_df <- left_join(wins_df, wins_2018_df, by = "country")
 wins_df[is.na(wins_df)] <- 0
 
 wins_df <- wins_df %>%
-  mutate(total_games = total_away_games + total_home_games + total_away_2018_games + total_home_2018_games) %>% 
-  mutate(total_wins_final = total_wins + total_wins_2018) %>% 
+  mutate(total_games = total_away_games + total_home_games + total_away_2018_games + total_home_2018_games)
+
+wins_df <- wins_df %>%
+  mutate(total_wins_final = total_wins + total_wins_2018)
+
+wins_df <- wins_df %>%
   mutate(winning_perc = 100 * total_wins_final / total_games)
 
 options(digits = 4)
@@ -141,42 +146,10 @@ options(digits = 4)
 wins_df <- wins_df %>%
   select(country, total_wins_final, total_games, winning_perc)
 
-# 2014
-ff_data <- ff_data %>%
-  mutate(total_goals = Home.Team.Goals + Away.Team.Goals)
+lowest_country <- wins_df %>%
+  filter(winning_perc == min(winning_perc)) %>%
+  pull(country)
 
-
-# 2018
-ff_data_2018 <- read.csv("data/world_cup_2018_stats.csv")
-ff_data_2018 <- ff_data_2018 %>% 
-  distinct(Game, .keep_all = TRUE)
-
-ff_data_2018 <- ff_data_2018 %>% 
-  mutate(total_goals_scored = Goals.For + Goals.Against)
-
-total_goals_2014 <- max(ff_data$total_goals)
-total_goals_2014
-
-total_goals_2018 <- max(ff_data_2018$total_goals_scored)
-
-total_goals_2018
-
-total_goals <- max(total_goals_2014, total_goals_2018)
-total_goals
-
-# Table
-table_df <- list()
-
-table_df$total_games <- sum(wins_df$total_games)
-
-table_df$highest_winning_perc <- round(wins_df %>% 
-                                         filter(winning_perc == max(winning_perc)) %>% 
-                                         pull(winning_perc), digits = 0)
-
-table_df$lowest_winning_perc <- round(wins_df %>% 
-                                        filter(winning_perc == min(winning_perc)) %>% 
-                                        pull(winning_perc), digits = 0)
-
-table_df$cumulative_attendance <- sum(ff_data$Attendance, na.rm = TRUE)
-
-table_df$most_goals_scored <- max(total_goals_2014, total_goals_2018)
+highest_country <- wins_df %>%
+  filter(winning_perc == max(winning_perc)) %>%
+  pull(country)
