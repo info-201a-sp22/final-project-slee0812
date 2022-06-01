@@ -110,6 +110,7 @@ wins_2018_df <- df_2018 %>%
 
 colnames(wins_2018_df)[1] <- "country"
 
+
 # total games 2018
 total_home_games_2018_df <- df_2018 %>%
   group_by(Team) %>%
@@ -141,6 +142,7 @@ options(digits = 4)
 wins_df <- wins_df %>%
   select(country, total_wins_final, total_games, winning_perc)
 
+
 # 2014
 ff_data <- ff_data %>%
   mutate(total_goals = Home.Team.Goals + Away.Team.Goals)
@@ -159,6 +161,7 @@ total_goals_2014 <- max(ff_data$total_goals)
 total_goals_2018 <- max(ff_data_2018$total_goals_scored)
 
 total_goals <- max(total_goals_2014, total_goals_2018)
+
 
 # Table
 table_df <- list()
