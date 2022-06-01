@@ -1,22 +1,23 @@
 library(ggplot2)
 library(plotly)
 library(dplyr)
+library(ddpcr)
+library(stringr)
 
-climate_df <- read.csv("https://raw.githubusercontent.com/owid/co2-data/master/owid-co2-data.csv", stringsAsFactors = FALSE)
+source("winning_perc_data.R")
 
 server <- function(input, output) {
+  output$winning_perc_plot <- renderPlotly({
+    wins_df <- wins_df %>%
+      filter(country %in% input$country_selected)
 
-  output$climate_plot <- renderPlotly({
+    # barchart
+    bar_chart <- ggplot(data = wins_df) +
+      geom_col(mapping = aes(x = reorder(country, +winning_perc), y = winning_perc, fill = country)) +
+      labs(title = "Winning Percentages by Countries in FIFA World Cup (1930-2018)", x = "Countries", y = "Winning Percentages (%)", fill = "Percentages (%)") +
+      theme(text = element_text(size = 10, face = "bold"), plot.title = element_text(size = 20, face = "bold")) +
+      coord_flip()
 
-    filtered_df <- climate_df %>% 
-      # Filter for country
-      filter(country %in% input$country_selection)
-    
-    co2_plot <- ggplot(data = filtered_df) +
-      geom_line(mapping = aes(x = year, y = co2, color = country))
-
-    return(co2_plot)
-    
+    return(bar_chart)
   })
-
 }

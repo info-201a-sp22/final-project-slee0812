@@ -1,0 +1,155 @@
+# chart 1
+library(dplyr)
+library(ddpcr)
+library(stringr)
+library(ggplot2)
+
+# dataframe ~2014
+soccer_df <- distinct(read.csv("data/WorldCupMatches.csv"))
+
+
+# Create goal difference
+soccer_df <- soccer_df %>%
+  mutate(goal_diff = Home.Team.Goals - Away.Team.Goals) %>%
+  mutate(winner = "")
+
+
+# sub_df ~2014 Non-Penalties
+sub_df <- soccer_df %>%
+  filter(winner != "Penalties") %>%
+  filter(goal_diff != 0)
+
+sub_df$winner <- ifelse(sub_df$goal_diff > 0, sub_df$Home.Team.Name, sub_df$Away.Team.Name)
+
+sub_df <- sub_df %>%
+  select(MatchID, winner)
+
+
+# sub_df2 ~2014 Draw
+sub_df2 <- soccer_df %>%
+  filter(winner != "Penalties") %>%
+  filter(goal_diff == 0)
+
+sub_df2["winner"][sub_df2["winner"] == ""] <- "Draw"
+
+sub_df2 <- sub_df2 %>%
+  select(MatchID, winner)
+
+
+# sub_df3 ~2014 Penalties
+sub_df3 <- soccer_df %>%
+  filter(str_detect(Win.conditions, "penalties") == TRUE) %>%
+  filter(goal_diff == 0)
+
+sub_df3$winner <- ifelse(str_detect(sub_df3$Win.conditions, sub_df3$Home.Team.Name) == TRUE, sub_df3$Home.Team.Name, sub_df3$Away.Team.Name)
+
+sub_df3 <- sub_df3 %>%
+  select(MatchID, winner)
+
+
+# merge ~2014
+soccer_df <- merge_dfs_overwrite_col(soccer_df, sub_df, by = "MatchID")
+soccer_df <- merge_dfs_overwrite_col(soccer_df, sub_df2, by = "MatchID")
+soccer_df <- merge_dfs_overwrite_col(soccer_df, sub_df3, by = "MatchID")
+
+
+# wins ~2014
+wins_df <- soccer_df %>%
+  filter(winner != "Draw") %>%
+  group_by(winner) %>%
+  summarize(total_wins = n())
+
+colnames(wins_df)[1] <- "country"
+
+
+# total games ~2014
+total_home_games_df <- soccer_df %>%
+  group_by(Home.Team.Name) %>%
+  summarize(total_home_games = n())
+
+colnames(total_home_games_df)[1] <- "country"
+
+total_away_games_df <- soccer_df %>%
+  group_by(Away.Team.Name) %>%
+  summarize(total_away_games = n())
+
+colnames(total_away_games_df)[1] <- "country"
+
+wins_df <- left_join(wins_df, total_home_games_df, by = "country")
+wins_df <- left_join(wins_df, total_away_games_df, by = "country")
+
+
+## dataframe 2018
+df_2018 <- read.csv("data/world_cup_2018_stats.csv")
+
+df_2018 <- df_2018 %>%
+  distinct(Game, .keep_all = TRUE)
+
+df_2018 <- df_2018 %>%
+  mutate(winner = "")
+
+df_2018$winner <- ifelse(df_2018$WDL == "D", "Draw", "")
+
+
+# sub_df 2018 Draw
+sub_2018_df <- df_2018 %>%
+  filter(WDL != "D")
+
+sub_2018_df$winner <- ifelse(sub_2018_df$WDL == "W", sub_2018_df$Team, sub_2018_df$Opponent)
+
+sub_2018_df <- sub_2018_df %>%
+  select(Game, winner)
+
+df_2018 <- merge_dfs_overwrite_col(df_2018, sub_2018_df, by = "Game")
+
+
+# sub_df 2018 has winner
+wins_2018_df <- df_2018 %>%
+  filter(winner != "Draw") %>%
+  group_by(winner) %>%
+  summarize(total_wins_2018 = n())
+
+colnames(wins_2018_df)[1] <- "country"
+
+# total games 2018
+total_home_games_2018_df <- df_2018 %>%
+  group_by(Team) %>%
+  summarize(total_home_2018_games = n())
+
+colnames(total_home_games_2018_df)[1] <- "country"
+
+total_away_games_2018_df <- df_2018 %>%
+  group_by(Opponent) %>%
+  summarize(total_away_2018_games = n())
+
+colnames(total_away_games_2018_df)[1] <- "country"
+
+wins_2018_df <- left_join(wins_2018_df, total_home_games_2018_df, by = "country")
+wins_2018_df <- left_join(wins_2018_df, total_away_games_2018_df, by = "country")
+
+
+# total wins
+wins_df <- left_join(wins_df, wins_2018_df, by = "country")
+wins_df[is.na(wins_df)] <- 0
+
+wins_df <- wins_df %>%
+  mutate(total_games = total_away_games + total_home_games + total_away_2018_games + total_home_2018_games)
+
+wins_df <- wins_df %>%
+  mutate(total_wins_final = total_wins + total_wins_2018)
+
+wins_df <- wins_df %>%
+  mutate(winning_perc = 100 * total_wins_final / total_games)
+
+options(digits = 4)
+
+wins_df <- wins_df %>%
+  select(country, total_wins_final, total_games, winning_perc)
+
+lowest_country <- wins_df %>%
+  filter(winning_perc == min(winning_perc)) %>%
+  pull(country)
+
+highest_country <- wins_df %>%
+  filter(winning_perc == max(winning_perc)) %>%
+  pull(country)
