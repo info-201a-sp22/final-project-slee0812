@@ -18,9 +18,7 @@ intro_tab <- tabPanel(
   # Title of tab
   "Introduction",
   fluidPage(
-    # # Include a Markdown file!
-    # includeMarkdown("intro_text.md"),
-    p("Our project is focusing neww.....")
+    includeMarkdown("intro_text.md"),
   )
 )
 
@@ -52,6 +50,31 @@ winning_tab <- tabPanel(
   )
 )
 
+# For chart 3
+
+sidebar_panel_widget_3 <- sidebarPanel(
+  selectInput(
+    inputId = "variable_selection",
+    label = "Factors",
+    choices = c("GoalsScored" = 1, "QualifiedTeams" = 2, "Attendance" = 3),
+    multiple = FALSE,
+    selected = "GoalsScored"
+  )
+)
+
+main_panel_plot_3 <- mainPanel(
+  plotlyOutput(outputId = "chart_3")
+)
+
+correaltion_tab <- tabPanel(
+  "Factors Correalation",
+  sidebarLayout(
+    sidebar_panel_widget_3,
+    main_panel_plot_3
+  )
+)
+
+
 # conclusion
 conclusion_tab <- tabPanel(
   "Conclusion",
@@ -65,5 +88,6 @@ ui <- navbarPage(
   "FIFA World Cup Statistics",
   intro_tab,
   winning_tab,
+  correaltion_tab,
   conclusion_tab
 )

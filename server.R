@@ -5,6 +5,7 @@ library(ddpcr)
 library(stringr)
 
 source("winning_perc_data.R")
+WorldCup <- read.csv("data/WorldCups.csv")
 
 server <- function(input, output) {
   output$winning_perc_plot <- renderPlotly({
@@ -19,5 +20,25 @@ server <- function(input, output) {
       coord_flip()
 
     return(bar_chart)
+  })
+  
+  output$chart_3 <- renderPlotly({
+    
+    GSplot <- ggplot(data = WorldCup) +
+      geom_point(aes(x=MatchesPlayed, y=GoalsScored, colour=MatchesPlayed)) + 
+      labs(title = "Correlation between MatchesPlayed and GoalsScored")
+    
+    QTplot <- ggplot(data = WorldCup) +
+      geom_point(aes(x=MatchesPlayed, y=QualifiedTeams, colour=MatchesPlayed)) + 
+      labs(title = "Correlation between MatchesPlayed and QualifiedTeams")
+    
+    Atplot <- ggplot(data = WorldCup) +
+      geom_point(aes(x=MatchesPlayed, y=Attendance, colour=MatchesPlayed)) + 
+      labs(title = "Correlation between MatchesPlayed and Attendance")
+    
+    if (input$variable_selection == 1) {return(GSplot)}
+    if (input$variable_selection == 2) {return(QTplot)}
+    else {return(Atplot)}
+    
   })
 }
