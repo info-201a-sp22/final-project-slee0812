@@ -82,7 +82,7 @@ sidebar_panel_widget_3 <- sidebarPanel(
     label = h3("Time Range"),
     min = min(goals$Year),
     max = max(goals$Year),
-    sep = "",
+    step= 4,
     value = c(min(goals$Year), max(goals$Year))
   )
 )
