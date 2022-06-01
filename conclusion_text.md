@@ -33,7 +33,7 @@ Image source: https://www.cbc.ca/sports/soccer/world-cup-attendance-3rd-highest-
 
 ### C. Third Takeaway
 
-We found something very interesting during our World Cup research. We were curious about how many goals each side scored in a single World Cup match. We found the highest number of goals by combining the home and away team, 12 goals.
+We found something very interesting during our World Cup research. We were curious about how many goals each side scored in a single World Cup match. We found the highest number of goals by combining the home and away team, 12 goals. The general trend between comparison of home scores and away scores show us that places where the matches happen is an important factors in determining the result. In the long history of FIFA world cup, the home scores is generally and significantly higher than away scores. 
 
 ![Soccer image 4](https://theworld.org/_next/image?url=https%3A%2F%2Fmedia.pri.org%2Fs3fs-public%2Fstory%2Fimages%2Fgoal2.jpg&w=600&q=75)
 
