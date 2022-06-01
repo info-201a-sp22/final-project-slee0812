@@ -4,14 +4,15 @@ library(bslib)
 source("winning_perc_data.R")
 
 # Manually Determine a BootSwatch Theme
-my_theme <- bs_theme(bg = "#0b3d91", #background color
-                  fg = "yellow", #foreground color
-                  primary = "#FCC780", # primary color
-) 
+my_theme <- bs_theme(
+  bg = "#0b3d91", # background color
+  fg = "yellow", # foreground color
+  primary = "#FCC780", # primary color
+)
 # Update BootSwatch Theme
-my_theme <- bs_theme_update(my_theme, bootswatch = "cerulean") #%>% 
-  # Add custom styling from a scss file
-  #bs_add_rules(sass::sass_file("my_style.scss"))
+my_theme <- bs_theme_update(my_theme, bootswatch = "cerulean") # %>%
+# Add custom styling from a scss file
+# bs_add_rules(sass::sass_file("my_style.scss"))
 
 # Home page tab
 intro_tab <- tabPanel(
@@ -22,8 +23,7 @@ intro_tab <- tabPanel(
   )
 )
 
-# We want our next tab to have a sidebar layout
-# So we're going to create a sidebarPanel() and a mainPanel() and then add them together
+# Page 1
 
 sidebar_panel_widget <- sidebarPanel(
   selectInput(
@@ -46,7 +46,7 @@ winning_tab <- tabPanel(
     main_panel_plot
   ),
   fluidPage(
-    p("This bar chart displays the countries with their winning percentages in FIFA World Cup history from 1930 to 2018. This visualization will automatically arrange the order of countries based on their winning percentages, allowing you to easily find the countries with the highest or lowest winning percentage in the FIFA World Cup. The defaulted countries above are selected from the top two FIFA rankings for each continent, except for countries belonging to the Oceania Football Federation. With the widget in this page, you can freely choose as many countries you want. For example, if you compare Brazil's winning percentage with any other country, you will always get the same conclusion that Brazil has the highest winning percentage in the FIFA World Cup. In addition, if you select all countries shown on the graph, you will be able to find out that Tunisia has the lowest winning percentage.")
+    textOutput(outputId = "description_1"),
   )
 )
 
