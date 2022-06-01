@@ -16,15 +16,14 @@ my_theme <- bs_theme_update(my_theme, bootswatch = "cerulean") # %>%
 
 # Home page tab
 intro_tab <- tabPanel(
-  # Title of tab
   "Introduction",
   fluidPage(
     includeMarkdown("intro_text.md"),
   )
 )
 
-# Page 1
 
+# Page 1
 sidebar_panel_widget <- sidebarPanel(
   selectInput(
     inputId = "country_selected",
@@ -50,8 +49,8 @@ winning_tab <- tabPanel(
   )
 )
 
-# Page 2
 
+# Page 2
 sidebar_panel_widget_2 <- sidebarPanel(
   selectInput(
     inputId = "variable_selection",
@@ -74,8 +73,8 @@ correaltion_tab <- tabPanel(
   )
 )
 
-# Page 3
 
+# Page 3
 sidebar_panel_widget_3 <- sidebarPanel(
   sliderInput(
     inputId = "year_selection",
@@ -99,6 +98,7 @@ comparision_tab <- tabPanel(
   )
 )
 
+
 # conclusion
 conclusion_tab <- tabPanel(
   "Conclusion",
@@ -107,6 +107,8 @@ conclusion_tab <- tabPanel(
   )
 )
 
+
+# ui
 ui <- navbarPage(
   theme = my_theme,
   "FIFA World Cup Statistics",
