@@ -43,3 +43,7 @@ Image source: https://theworld.org/stories/2014-06-23/how-can-us-advance-world-c
 
 
 ## Discussion of the broader implications of this insight(need to fix it)
+
+Many people have been enthusiastic about the World Cup, and during the World Cup, attention was focused. There must be a lot of research on the World Cup. It is also expected that during the World Cup, our data will be used when using statistical data in broadcasting or news. For example, when Germany and England play soccer, the news tells how many times Germany and England won and talks about the winning rate together to predict which country will win.
+
+More importantly, the implications of the statistical analysis of our data could help guide the dynamics of the transfer market, as champion players and top scorers in the World Cup become more favored by top clubs. Additionally, the champion team and players would also attract significant investments and commercial opportunities. Therefore, with the support of statistical analysis, investors and businesses could have a deeper understanding of the current performance and future prospects of specific players and teams. Hence, they would be able to allocate and direct their resources and investment in a more accurate and profitable fashion by seizing the capital opportunities brought about by the newly recognized players.
