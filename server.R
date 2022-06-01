@@ -28,6 +28,17 @@ server <- function(input, output) {
       geom_point(aes(x=MatchesPlayed, y=GoalsScored, colour=MatchesPlayed)) + 
       labs(title = "Correlation between MatchesPlayed and GoalsScored")
     
-    return(GSplot)
+    QTplot <- ggplot(data = WorldCup) +
+      geom_point(aes(x=MatchesPlayed, y=QualifiedTeams, colour=MatchesPlayed)) + 
+      labs(title = "Correlation between MatchesPlayed and QualifiedTeams")
+    
+    Atplot <- ggplot(data = WorldCup) +
+      geom_point(aes(x=MatchesPlayed, y=Attendance, colour=MatchesPlayed)) + 
+      labs(title = "Correlation between MatchesPlayed and Attendance")
+    
+    if (input$variable_selection == 1) {return(GSplot)}
+    if (input$variable_selection == 2) {return(QTplot)}
+    else {return(Atplot)}
+    
   })
 }
