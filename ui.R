@@ -45,7 +45,7 @@ winning_tab <- tabPanel(
     main_panel_plot
   ),
   fluidPage(
-    textOutput(outputId = "description_1"),
+    textOutput(outputId = "description_1")
   )
 )
 
@@ -70,6 +70,9 @@ correaltion_tab <- tabPanel(
   sidebarLayout(
     sidebar_panel_widget_2,
     main_panel_plot_2
+  ),
+  fluidPage(
+    textOutput(outputId = "description_2")
   )
 )
 
@@ -95,6 +98,9 @@ comparision_tab <- tabPanel(
   sidebarLayout(
     sidebar_panel_widget_3,
     main_panel_plot_3
+  ),
+  fluidPage(
+    textOutput(outputId = "description_3")
   )
 )
 

@@ -1,10 +1,20 @@
-# Conclusion page
+# Conclusion
+
+## Table of Summary Information
+
+| Statistics | Numbers
+| -------------     |:-------------:
+| Total Games      | 1705
+| Highest Winning Percentage (Brazil)      | 70
+| Lowest Winning Percentage (Tunisia)      | 13
+| Cumulative Attendance in World Cup except 2018      | 37457647
+| Most Goals Scored in Single Game (including home team and away team)      | 12
 
 ## Three Specific Takeaways
 
 ### A. First Takeaway
 
-Through the winning percentage of other countries in the history of the FIFA World Cup, we can see which countries are good at soccer and how many have won. We found that Brazil has the highest winning percentage and has almost 70 percent winning percentage in World Cup history. Also, Tunisia has the lowest winning percentage and has about 13 percent winning percentage. This does not necessarily mean that the country is good at soccer, but we can anticipate from this data about the country's good at soccer.
+Through the winning percentage of other countries in the history of the FIFA World Cup, we can see which countries are good at soccer and how many have won. We found that Brazil has the highest winning percentage and has almost 70 percent winning percentage in World Cup history. Also, Tunisia has the lowest winning percentage and has about 13 percent winning percentage. This does not necessarily mean that the country is good at soccer, but we can anticipate from this data whether a country is good at soccer or not since it is already competitive to earn a seat in FIFA World Cup. Meanwhile, it is a analysis of cumulative data so some data are data from Finals, and some are from Semi-Finals. The data from Final rounds and Semi-Final rounds can tell more than matches played in other rounds. Thus, there should not be a directly clear correlation between the winning percentage and the overall
 
 ![Soccer image 1](https://imageio.forbes.com/specials-images/imageserve/61c1aa77350ef090aa981514/France-v-Croatia---2018-FIFA-World-Cup-Russia-Final/960x0.jpg?format=jpg&width=960)
 

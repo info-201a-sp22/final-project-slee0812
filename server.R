@@ -57,7 +57,12 @@ server <- function(input, output) {
       return(Atplot)
     }
   })
-
+  
+  output$description_2 <- renderText({
+    value_2 <- paste("This chart studies the correlation between the Matches played in a year and the total scores. Intuitively speaking, more matches will lead to more goals but their relation might not be perfectly linear, so we include this chart to explore the authentic correlation between these two variables.")
+    
+    return(value_2)
+  })
 
   # Page 3
   output$comparision_plot <- renderPlotly({
@@ -74,4 +79,11 @@ server <- function(input, output) {
 
     return(score_plot)
   })
+
+
+output$description_3 <- renderText({
+  value_3 <- paste("The purpose of this chart is to compare the number of home team goals and away team goals over the history of FIFA World Cup. To do so, our team used a line chart because it is easy to track the number of total goals for each World Cup held in every 4 years and investigate whether home teams have an advantage over away teams. We grouped up each World Cup by its year and summed up total home team goals and away team goals, respectively. In result, we found that the most goals that home teams scored were in 1954 and the most goals that away teams scored were in 2014, which was the most recent World Cup in Russia. Moreover, this chart displays that the home teams scored more than the away teams, but this phenomenon no longer exists in recent years, concluding that home-field advantage does not affect the game result.")
+  
+  return(value_3)
+})
 }
