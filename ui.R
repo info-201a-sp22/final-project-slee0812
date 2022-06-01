@@ -15,12 +15,15 @@ my_theme <- bs_theme_update(my_theme, bootswatch = "cerulean") #%>%
 
 # Home page tab
 intro_tab <- tabPanel(
-  # Title of tab
   "Introduction",
   fluidPage(
+<<<<<<< HEAD
     # # Include a Markdown file!
     # includeMarkdown("intro_text.md"),
     p("Our project is focusing neww.....")
+=======
+    includeMarkdown("intro_text.md")
+>>>>>>> c297169020f7cba8f95c8fbb24051d90e6bdcbaf
   )
 )
 
@@ -41,14 +44,21 @@ main_panel_plot <- mainPanel(
   plotlyOutput(outputId = "winning_perc_plot")
 )
 
+<<<<<<< HEAD
 winning_tab <- tabPanel(
   "Winning %",
+=======
+
+climate_tab <- tabPanel(
+  "Climate Viz",
+>>>>>>> c297169020f7cba8f95c8fbb24051d90e6bdcbaf
   sidebarLayout(
     sidebar_panel_widget,
     main_panel_plot
   )
 )
 
+<<<<<<< HEAD
 ui <- navbarPage(
   # Select Theme
   theme = my_theme,
@@ -57,3 +67,21 @@ ui <- navbarPage(
   intro_tab,
   winning_tab
 )
+=======
+# conclusion
+conclusion_tab <- tabPanel(
+  "Conclusion",
+  fluidPage(
+    includeMarkdown("conclusion_text.md")
+  )
+)
+
+ui <- navbarPage(
+  theme = my_theme,
+  "FIFA World Cup Statistics",
+  intro_tab,
+  climate_tab,
+  conclusion_tab
+)
+
+>>>>>>> c297169020f7cba8f95c8fbb24051d90e6bdcbaf
