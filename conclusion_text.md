@@ -2,13 +2,13 @@
 
 ## Table of Summary Information
 
-| Statistics | Numbers
+| Statistics |    Numbers
 | -------------     |:-------------:
-| Total Games      | 1705
-| Highest Winning Percentage (Brazil)      | 70
-| Lowest Winning Percentage (Tunisia)      | 13
-| Cumulative Attendance in World Cup except 2018      | 37457647
-| Most Goals Scored in Single Game (including home team and away team)      | 12
+| Total Games Played      | 1705
+| Highest Winning Percentage (Brazil)      | 70%
+| Lowest Winning Percentage (Tunisia)      | 13%
+| Cumulative Attendance in World Cup up to 2014      | 37,457,647
+| Most Goals Scored in Single Game (Total home and away teams goals)      | 12
 
 ## Three Specific Takeaways
 
