@@ -4,7 +4,7 @@
 
 | Statistics |    Numbers
 | -------------     |:-------------:
-| Total Games Played      | 1705
+| Total Games Played      | 1,705
 | Highest Winning Percentage (Brazil)      | 70%
 | Lowest Winning Percentage (Tunisia)      | 13%
 | Cumulative Attendance in World Cup up to 2014      | 37,457,647
