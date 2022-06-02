@@ -3,16 +3,15 @@ library(bslib)
 
 source("trimmedData.R")
 
-# Manually Determine a BootSwatch Theme
 my_theme <- bs_theme(
   bg = "#0b3d91", # background color
   fg = "yellow", # foreground color
   primary = "#FCC780", # primary color
+  base_font = font_google("Prompt"),
+  code_font = font_google("JetBrains Mono")
 )
 # Update BootSwatch Theme
-my_theme <- bs_theme_update(my_theme, bootswatch = "lux") # %>%
-# Add custom styling from a scss file
-# bs_add_rules(sass::sass_file("my_style.scss"))
+my_theme <- bs_theme_update(my_theme, bootswatch = "sandstone")
 
 # Home page tab
 intro_tab <- tabPanel(
