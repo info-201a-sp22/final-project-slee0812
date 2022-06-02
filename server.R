@@ -36,17 +36,17 @@ server <- function(input, output) {
     GSplot <- ggplot(data = WorldCup) +
       geom_point(aes(x = MatchesPlayed, y = GoalsScored, colour = MatchesPlayed)) +
       labs(title = "Correlation between MatchesPlayed and GoalsScored") +
-      theme(plot.title = element_text(size = 20, face = "bold"))
+      theme(text = element_text(size = 10, face = "bold"), plot.title = element_text(size = 20, face = "bold"))
 
     QTplot <- ggplot(data = WorldCup) +
       geom_point(aes(x = MatchesPlayed, y = QualifiedTeams, colour = MatchesPlayed)) +
       labs(title = "Correlation between MatchesPlayed and QualifiedTeams") +
-      theme(plot.title = element_text(size = 20, face = "bold"))
+      theme(text = element_text(size = 10, face = "bold"), plot.title = element_text(size = 20, face = "bold"))
 
     Atplot <- ggplot(data = WorldCup) +
       geom_point(aes(x = MatchesPlayed, y = Attendance, colour = MatchesPlayed)) +
       labs(title = "Correlation between MatchesPlayed and Attendance") +
-      theme(plot.title = element_text(size = 20, face = "bold"))
+      theme(text = element_text(size = 10, face = "bold"), plot.title = element_text(size = 20, face = "bold"))
 
     if (input$variable_selection == 1) {
       return(GSplot)
@@ -64,6 +64,7 @@ server <- function(input, output) {
     return(value_2)
   })
 
+
   # Page 3
   output$comparision_plot <- renderPlotly({
     filtered_df <- goals %>%
@@ -73,13 +74,12 @@ server <- function(input, output) {
       geom_line(aes(x = Year, y = Home_goals, colour = "Home scores")) +
       geom_line(aes(x = Year, y = Away_goals, colour = "Away scores")) +
       labs(title = "Comparsion between Home Scores and Away Scores") +
-      theme(plot.title = element_text(size = 20, face = "bold"), axis.text.x = element_text(angle = 90)) +
+      theme(text = element_text(size = 10, face = "bold"), plot.title = element_text(size = 20, face = "bold"), axis.text.x = element_text(angle = -90)) +
       print(labs(y = "Goals", x = "Year")) +
       scale_x_continuous(breaks = seq(1930, 2018, by = 4))
 
     return(score_plot)
   })
-
 
   output$description_3 <- renderText({
     value_3 <- paste("The purpose of this chart is to compare the number of home team goals and away team goals over the history of FIFA World Cup. To do so, our team used a line chart because it is easy to track the number of total goals for each World Cup held in every 4 years and investigate whether home teams have an advantage over away teams. We grouped up each World Cup by its year and summed up total home team goals and away team goals, respectively. In result, we found that the most goals that home teams scored were in 1954 and the most goals that away teams scored were in 2014, which was the most recent World Cup in Russia. Moreover, this chart displays that the home teams scored more than the away teams, but this phenomenon no longer exists in recent years, concluding that home-field advantage does not affect the game result.")

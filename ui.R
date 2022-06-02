@@ -10,10 +10,12 @@ my_theme <- bs_theme(
   base_font = font_google("Prompt"),
   code_font = font_google("JetBrains Mono")
 )
+
 # Update BootSwatch Theme
 my_theme <- bs_theme_update(my_theme, bootswatch = "sandstone")
 
-# Home page tab
+
+# Intro
 intro_tab <- tabPanel(
   "Introduction",
   fluidPage(
