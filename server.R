@@ -33,33 +33,28 @@ server <- function(input, output) {
 
   # Page 2
   output$correalation_plot <- renderPlotly({
-    GSplot <- ggplot(data = WorldCup) +
-      geom_point(aes(x = MatchesPlayed, y = GoalsScored, colour = MatchesPlayed)) +
-      labs(title = "Correlation between MatchesPlayed and GoalsScored") +
-      theme(text = element_text(size = 10, face = "bold"), plot.title = element_text(size = 20, face = "bold"))
-
-    QTplot <- ggplot(data = WorldCup) +
-      geom_point(aes(x = MatchesPlayed, y = QualifiedTeams, colour = MatchesPlayed)) +
-      labs(title = "Correlation between MatchesPlayed and QualifiedTeams") +
-      theme(text = element_text(size = 10, face = "bold"), plot.title = element_text(size = 20, face = "bold"))
+    
+     GSplot <- ggplot(data = WorldCup) +
+      geom_line(aes(x = Year, y = GoalsScored)) +
+      labs(title = "Number of Goals Scored in World Cup") +
+      theme(text = element_text(size = 10, face = "bold"), plot.title = element_text(size = 20, face = "bold")) +
+      scale_x_continuous(breaks = seq(1930, 2018, by = 4))
 
     Atplot <- ggplot(data = WorldCup) +
-      geom_point(aes(x = MatchesPlayed, y = Attendance, colour = MatchesPlayed)) +
-      labs(title = "Correlation between MatchesPlayed and Attendance") +
-      theme(text = element_text(size = 10, face = "bold"), plot.title = element_text(size = 20, face = "bold"))
+      geom_line(aes(x = Year, y = Attendance)) +
+      labs(title = "Number of Attendance in World Cup") +
+      theme(text = element_text(size = 10, face = "bold"), plot.title = element_text(size = 20, face = "bold")) +
+      scale_x_continuous(breaks = seq(1930, 2014, by = 4))
 
     if (input$variable_selection == 1) {
       return(GSplot)
-    }
-    if (input$variable_selection == 2) {
-      return(QTplot)
     } else {
       return(Atplot)
     }
   })
 
   output$description_2 <- renderText({
-    value_2 <- paste("This chart studies the correlation between the Matches played in a year and the total scores. Intuitively speaking, more matches will lead to more goals but their relation might not be perfectly linear, so we include this chart to explore the authentic correlation between these two variables.")
+    value_2 <- paste("This chart displays how the numbers of total goals and attendance vary over the years in the World Cup. According to the visualization, both graphs show an increasing trend as each country that has been playing in World Cup over the years performs better and people get more interested in soccer. Also, other external factors such as media or advanced technologies broadcasting the World Cup all over the world play a significant role to encourage people to participate in more World Cup matches without directly watching them in the stadium.")
 
     return(value_2)
   })

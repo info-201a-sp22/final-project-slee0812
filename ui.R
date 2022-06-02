@@ -56,7 +56,7 @@ sidebar_panel_widget_2 <- sidebarPanel(
   selectInput(
     inputId = "variable_selection",
     label = "Factors",
-    choices = c("GoalsScored" = 1, "QualifiedTeams" = 2, "Attendance" = 3),
+    choices = c("GoalsScored" = 1, "Attendance" = 2),
     multiple = FALSE,
     selected = "GoalsScored"
   )
@@ -67,7 +67,7 @@ main_panel_plot_2 <- mainPanel(
 )
 
 correaltion_tab <- tabPanel(
-  "Factors Correalation",
+  "Total Goals & Attendance",
   sidebarLayout(
     sidebar_panel_widget_2,
     main_panel_plot_2

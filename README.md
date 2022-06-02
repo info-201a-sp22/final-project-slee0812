@@ -22,7 +22,7 @@ Image source: https://images.app.goo.gl/LsSH5FrSVes24HsM7
 With the upcoming 2022 Qatar FIFA World Cup, the bandwagon of soccer has started to roll again. Before this worldwide festival begins, we would like to explore more about the history of the FIFA World Cup. To better acknowledge the history of the FIFA World Cup, different countries?€? performance in the World Cup is definitely an important index representing their national soccer standings. In doing so, our main research question starts off with how the winning percentage differs for each country in the FIFA World Cup. The first World Cup has started in 1930 and lasted until 2018, which was held in various countries for 88 years, although some World Cups were not held in 1942 and 1946 due to World War II. With this exceptional historical event, our goal of this project is to statistically investigate and categorize the world's festival of the World Cup. Our main questions are:
 
 * What is the winning percentage of different countries over the history of FIFA World Cups?
-* What is the correlation between matches played and goals scored in the World Cup?
+* How do the numbers of goals and attendance change over the history of FIFA World Cups?
 * Does home advantage in the World Cup actually affects teams to score?
 
 We used these following datasets:
