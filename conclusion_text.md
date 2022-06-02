@@ -39,10 +39,10 @@ We found something very interesting during our World Cup research. We were curio
 
 Image source: https://theworld.org/stories/2014-06-23/how-can-us-advance-world-cup
 
-## Discussion of the most important insight or thing you learned from your analysis
+## Most Important Insight
 The most important insight is that I found that a certain country's ability in soccer games is constantly changing. Countries like Brazil, Argentina, and Germany all had their peaks. But there are times they were down. There are times they are strong and times they are weak. For instance, through the dataset, we can see Brazil won the world cup five times and have times tumbled out of the tournament. Soccer players from different countries, generation by generation, inherit glory and spirit from former players and strive to bring honor to their home country. One generation down, next-generation rise. I guess the world cup just exists in a romantic way like this, four years a time, witness the rise and down of the national soccer team, live long and prosper.
 
-## Discussion of the broader implications of this insight
+## Broader Implications
 
 Many people have been enthusiastic about the World Cup, and during the World Cup, attention was focused. There must be a lot of research on the World Cup. It is also expected that during the World Cup, our data will be used when using statistical data in broadcasting or news. For example, when Germany and England play soccer, the news tells how many times Germany and England won and talks about the winning rate together to predict which country will win.
 

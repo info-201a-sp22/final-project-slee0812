@@ -9,13 +9,7 @@ Member 3: Brian Park ([myungp\@uw.edu](mailto:myungp@uw.edu))\
 Member 4: Jiaqi Wang ([jiaqiw18\@uw.edu](mailto:jiaqiw18@uw.edu))
 
 
-Link: Link to your Shiny App here
-
-Please create the necessary files for your multi-page Shiny app in this GitHub repository. Consult the Canvas assignment for more details. Be sure to publish your app on Shinyapps.io.
-
-When you are finished, please add the text from your introductory and concluding pages below. You might want to use this GitHub repository as part of your digital portfolio, so you want this README.md to offer a brief description of the project and key takeaways.
-
-Feel free to delete these instructions for your final README.md file and to make your GitHub repository public if you would like others to be able to see it.
+Link: https://slee0812.shinyapps.io/final-project-info201-ag1/
 
 # Introduction
 
@@ -87,16 +81,16 @@ Image source: https://www.cbc.ca/sports/soccer/world-cup-attendance-3rd-highest-
 
 ### C. Third Takeaway
 
-We found something very interesting during our World Cup research. We were curious about how many goals each side scored in a single World Cup match. We found the highest number of goals by combining the home and away team, 12 goals. The general trend between comparison of home scores and away scores show us that places where the matches happen is an important factors in determining the result. In the long history of FIFA world cup, the home scores is generally and significantly higher than away scores. 
+We found something very interesting during our World Cup research. We were curious about how many goals each side scored in a single World Cup match. We found the highest number of goals by combining the home and away team, 12 goals. The general trend between comparison of home scores and away scores show us that places where the matches happen is an important factors in determining the result. In the long history of FIFA world cup, the home scores is generally and significantly higher than away scores.
 
 ![Soccer image 4](https://theworld.org/_next/image?url=https%3A%2F%2Fmedia.pri.org%2Fs3fs-public%2Fstory%2Fimages%2Fgoal2.jpg&w=600&q=75)
 
 Image source: https://theworld.org/stories/2014-06-23/how-can-us-advance-world-cup
 
-## Discussion of the most important insight or thing you learned from your analysis
+## Most Important Insight
 The most important insight is that I found that a certain country's ability in soccer games is constantly changing. Countries like Brazil, Argentina, and Germany all had their peaks. But there are times they were down. There are times they are strong and times they are weak. For instance, through the dataset, we can see Brazil won the world cup five times and have times tumbled out of the tournament. Soccer players from different countries, generation by generation, inherit glory and spirit from former players and strive to bring honor to their home country. One generation down, next-generation rise. I guess the world cup just exists in a romantic way like this, four years a time, witness the rise and down of the national soccer team, live long and prosper.
 
-## Discussion of the broader implications of this insight
+## Broader Implications
 
 Many people have been enthusiastic about the World Cup, and during the World Cup, attention was focused. There must be a lot of research on the World Cup. It is also expected that during the World Cup, our data will be used when using statistical data in broadcasting or news. For example, when Germany and England play soccer, the news tells how many times Germany and England won and talks about the winning rate together to predict which country will win.
 
